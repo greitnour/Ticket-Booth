@@ -9,7 +9,8 @@ public class TixOrder {
 
     private String name = array[0];
     private int tixCount = array[1];
-
+//Can only get to compile if the remainder of the code is commented out.
+//I'll work on getting that fixed tomorrow.
     public TixOrder (String name, int tixCount){
         this.name = name;
         this.tixCount = tixCount;
