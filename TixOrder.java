@@ -16,12 +16,4 @@ public class TixOrder {
         return tixCount;
     }
 
-    public String toString(){
-        return "**************************" +
-                "\nORDER NUMBER: " + "SOME NUMBERS HERE" +
-                "\nTIME STAMP: " + "SOME DATE AND TIME HERE" +
-                "\nName: " + name +
-                "\nTicket Count: " + tixCount;
-    }
-
 }

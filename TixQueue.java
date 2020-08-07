@@ -3,7 +3,7 @@ import ch04.queues.QueueUnderflowException;
 
 import java.util.*;
 
-public class TixQueue<T> extends ArrayBoundedQueue<TixOrder> {
+public class TixQueue extends ArrayBoundedQueue<TixOrder> {
 
     // Fields
     private int totTix;
@@ -25,14 +25,27 @@ public class TixQueue<T> extends ArrayBoundedQueue<TixOrder> {
     }
 
     public String dequeueOrder() {
+
+        String status = "";
+
+        // Dequeue the first item in the queue save it variable currOrder
         TixOrder currOrder = dequeue();
-        removeTix(currOrder.getTixCount());
+
+        // If the order is requesting more tickets then available Status = FALSE
+        if (totTix < currOrder.getTixCount()) {
+            status = "Not enough tickets were available to complete this order.";
+        } else {
+            status = "Order was successful!!";
+            removeTix(currOrder.getTixCount());
+        }
+
         return "*************************************************" +
                 "\nORDER NUMBER: " + getOrderNumber() +
                 "\nTIME STAMP: " + getTimeStamp() +
                 "\nName: " + currOrder.getName() +
-                "\nTickets in Order: " + currOrder.getTixCount() +
-                "\nRemaining Tickets for Sale: " + totTix +
+                "\nOrder Status: " + status +
+                "\nTickets Requested: " + currOrder.getTixCount() +
+                "\nTickets Available: " + totTix +
                 "\n*************************************************";
     }
 
