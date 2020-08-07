@@ -4,15 +4,17 @@ public class QueueProcessing {
     public static void main(String[] args) {
 
         TixQueue newTixQue = new TixQueue(10,10000);
-        //Thread queThread = new Thread((Runnable) newTixQue);
+        //Start the second thread
+        Thread t = new Thread((Runnable) newTixQue);
+        t.start();
 
-        // Create and enque order 1
+        // Create and enqueue order 1
         TixOrder orderOne = new TixOrder("Elise", 5);
         newTixQue.enqueue(orderOne);
 
         System.out.println("Current available tickets: " + newTixQue.getTotTix());
 
-        // Create and enque order 2
+        // Create and enqueue order 2
         TixOrder orderTwo = new TixOrder("Andrew", 15);
         newTixQue.enqueue(orderTwo);
 
