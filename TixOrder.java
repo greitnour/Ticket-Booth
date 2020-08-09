@@ -18,6 +18,8 @@ public class TixOrder {
     public TixOrder (String name, int tixCount){
         this.name = name;
         this.tixCount = tixCount;
+
+        
     }
 
     public String getName() {
